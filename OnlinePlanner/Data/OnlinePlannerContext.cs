@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
+using OnlinePlanner.Models;
 
 namespace OnlinePlanner.Models
 {
@@ -13,6 +14,8 @@ namespace OnlinePlanner.Models
         {
         }
 
-        public DbSet<OnlinePlanner.Models.Tasks> Tasks { get; set; }
+        public DbSet<Tasks> Tasks { get; set; }
+
+        public DbSet<Classes> Classes { get; set; }
     }
 }
