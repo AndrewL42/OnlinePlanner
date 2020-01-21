@@ -25,7 +25,7 @@ namespace OnlinePlanner.Models
                     new Tasks
                     {
                         Class_Name = "N/A",
-                        DueDate = DateTime.Parse("1/1/2000"),
+                        Due_Date = DateTime.Parse("1/1/2000"),
                         Task_Name = "N/A",
                     }
                 );

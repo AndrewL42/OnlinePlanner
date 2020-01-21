@@ -12,7 +12,7 @@ namespace OnlinePlanner.Models
         public string Class_Name { get; set; }
 
         [DataType(DataType.Date)]
-        public DateTime DueDate { get; set; }
+        public DateTime Due_Date { get; set; }
         public string Task_Name { get; set; }
 
     }

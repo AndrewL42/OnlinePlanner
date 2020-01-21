@@ -53,7 +53,7 @@ namespace OnlinePlanner.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Class_Name,DueDate,Task_Name")] Tasks tasks)
+        public async Task<IActionResult> Create([Bind("Id,Class_Name,Due_Date,Task_Name")] Tasks tasks)
         {
             if (ModelState.IsValid)
             {
@@ -85,7 +85,7 @@ namespace OnlinePlanner.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,Class_Name,DueDate,Task_Name")] Tasks tasks)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,Class_Name,Due_Date,Task_Name")] Tasks tasks)
         {
             if (id != tasks.Id)
             {

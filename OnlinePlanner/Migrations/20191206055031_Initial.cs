@@ -14,7 +14,7 @@ namespace OnlinePlanner.Migrations
                     Id = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Class_Name = table.Column<string>(nullable: true),
-                    DueDate = table.Column<DateTime>(nullable: false),
+                    Due_Date = table.Column<DateTime>(nullable: false),
                     Task_Name = table.Column<string>(nullable: true)
                 },
                 constraints: table =>

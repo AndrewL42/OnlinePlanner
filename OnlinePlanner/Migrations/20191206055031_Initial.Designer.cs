@@ -31,7 +31,7 @@ namespace OnlinePlanner.Migrations
                     b.Property<string>("Class_Name")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<DateTime>("DueDate")
+                    b.Property<DateTime>("Due_Date")
                         .HasColumnType("datetime2");
 
                     b.Property<string>("Task_Name")
