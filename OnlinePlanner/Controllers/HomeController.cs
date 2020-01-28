@@ -23,6 +23,11 @@ namespace OnlinePlanner.Controllers
             return View();
         }
 
+        public IActionResult Index_LoggedIn()
+        {
+            return View();
+        }
+
         public IActionResult Tasks()
         {
             return View();
@@ -37,6 +42,12 @@ namespace OnlinePlanner.Controllers
         {
             return View();
         }
+
+        //public ActionResult Login(SignIn user)
+        //{
+        //    Console.WriteLine(user);
+        //    return 0;
+        //}
 
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]

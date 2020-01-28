@@ -17,5 +17,7 @@ namespace OnlinePlanner.Models
         public DbSet<Tasks> Tasks { get; set; }
 
         public DbSet<Classes> Classes { get; set; }
+
+        public DbSet<SignIn> SignIn { get; set; }
     }
 }

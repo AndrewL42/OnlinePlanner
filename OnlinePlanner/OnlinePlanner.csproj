@@ -5,6 +5,15 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Migrations\20200125221659_SignIn.cs" />
+    <Compile Remove="Migrations\20200125221659_SignIn.Designer.cs" />
+    <Compile Remove="Migrations\20200125221835_SignIn.cs" />
+    <Compile Remove="Migrations\20200125221835_SignIn.Designer.cs" />
+    <Compile Remove="Migrations\20200126001101_SignIn.cs" />
+    <Compile Remove="Migrations\20200126001101_SignIn.Designer.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="3.1.0" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="3.0.0">
       <PrivateAssets>all</PrivateAssets>

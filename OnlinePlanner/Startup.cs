@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -29,6 +29,9 @@ namespace OnlinePlanner
 
             services.AddDbContext<OnlinePlannerContext>(options =>
                     options.UseSqlServer(Configuration.GetConnectionString("OnlinePlannerContext")));
+
+            services.AddDbContext<SignInContext>(options =>
+                    options.UseSqlServer(Configuration.GetConnectionString("SignInContext")));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

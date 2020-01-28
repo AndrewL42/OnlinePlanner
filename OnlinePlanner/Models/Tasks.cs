@@ -9,6 +9,7 @@ namespace OnlinePlanner.Models
     public class Tasks
     {
         public int Id { get; set; }
+        [Required]
         public string Class_Name { get; set; }
 
         [DataType(DataType.Date)]
