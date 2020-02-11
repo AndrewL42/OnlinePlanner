@@ -11,6 +11,7 @@ namespace OnlinePlanner.Models
         public int Id {get; set; }
  
         [Required]
+        [Key]
         public string Username { get; set; }
 
         [Required]

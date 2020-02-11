@@ -15,42 +15,26 @@ namespace OnlinePlanner.Controllers
 {
     public class SignInController : Controller
     {
-        private readonly SignInContext _context;
+        private readonly OnlinePlannerContext _context;
 
-        public SignInController(SignInContext context)
+        public SignInController(OnlinePlannerContext context)
         {
             _context = context;
         }
 
-        public IActionResult Login(string username, string password, IEnumerable<SignIn> smodel)
+        public IActionResult Login(SignIn smodel, IEnumerable<OnlinePlanner.Models.SignIn> tempModel)
         {
-            //System.Diagnostics.Debug.WriteLine(username);
-            //ViewData["username"] = username;
-            //ViewData["password"] = Data_password;
-            //@model IEnumerable<OnlinePlanner.Models.SignIn>
-            //System.Diagnostics.Debug.WriteLine(ViewData["username"]);
-            //System.Diagnostics.Debug.WriteLine(username);
-            //System.Diagnostics.Debug.WriteLine(ViewData["password"]);
-            //System.Diagnostics.Debug.WriteLine(password);
-            //ViewData["password"] = password;
-            //System.Diagnostics.Debug.WriteLine(password);
-            System.Diagnostics.Debug.WriteLine(smodel);
-            //var model = smodel.GetType().GetProperties();
-            //System.Diagnostics.Debug.WriteLine("CONTROLLER: " + model);
-            System.Diagnostics.Debug.WriteLine("CONTROLLER: " + smodel.ToArray());
-            var model = smodel.ToArray();
-            System.Diagnostics.Debug.WriteLine("CONTROLLER: " + model[1]);
+            var username = smodel.Username;
+            var password = smodel.Password;
 
-            foreach (var item in model)
+            System.Diagnostics.Debug.WriteLine("CONTROLLER: " + tempModel.ToArray().Length);
+
+            SignIn data_SignIn = _context.SignIn.Find(username);
+            var user_SignIn = data_SignIn.Username;
+            var password_SignIn = data_SignIn.Password;
+
+            if (user_SignIn != null && password_SignIn != null && user_SignIn.Equals(username) && password_SignIn.Equals(password))
             {
-                System.Diagnostics.Debug.WriteLine("CONTROLLER: " + item);
-                System.Diagnostics.Debug.WriteLine("CONTROLLER: " + item.Username);
-                System.Diagnostics.Debug.WriteLine("CONTROLLER: " + item.Password);
-                //var user = item.Username;
-            }
-            if (username != null && password != null && username.Equals(username) && password.Equals(password))
-            {
-                //HttpContext.Session.SetString("username", username);
                 return View("~/Views/Home/Index_LoggedIn.cshtml");
             }
             else

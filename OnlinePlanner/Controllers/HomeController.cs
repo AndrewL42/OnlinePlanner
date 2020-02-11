@@ -7,10 +7,14 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using OnlinePlanner.Models;
 
+using Microsoft.Extensions.Configuration;
+
 namespace OnlinePlanner.Controllers
 {
     public class HomeController : Controller
     {
+        //private static readonly IConfiguration _configuration;
+
         private readonly ILogger<HomeController> _logger;
 
         public HomeController(ILogger<HomeController> logger)

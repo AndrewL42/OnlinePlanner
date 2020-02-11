@@ -8,7 +8,7 @@ using OnlinePlanner.Models;
 
 namespace OnlinePlanner.Migrations.SignIn
 {
-    [DbContext(typeof(SignInContext))]
+    [DbContext(typeof(OnlinePlannerContext))]
     [Migration("20200126001142_SignIn")]
     partial class SignIn
     {

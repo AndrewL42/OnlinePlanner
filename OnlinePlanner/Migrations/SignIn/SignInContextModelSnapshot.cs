@@ -7,7 +7,7 @@ using OnlinePlanner.Models;
 
 namespace OnlinePlanner.Migrations.SignIn
 {
-    [DbContext(typeof(SignInContext))]
+    [DbContext(typeof(OnlinePlannerContext))]
     partial class SignInContextModelSnapshot : ModelSnapshot
     {
         protected override void BuildModel(ModelBuilder modelBuilder)

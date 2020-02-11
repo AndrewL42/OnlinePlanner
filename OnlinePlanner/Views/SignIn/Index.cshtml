@@ -27,10 +27,13 @@
         </tr>
     </thead>
     <tbody>
+
 @foreach (var item in Model)
 {
+    System.Diagnostics.Debug.WriteLine(Model);
     System.Diagnostics.Debug.WriteLine("INDEX: " + item);
 }
+
         <tr>
             <form method="post" asp-controller="SignIn" asp-action="Login">
                 <td>
@@ -42,6 +45,8 @@
                     @*<label asp-for="a"></label>*@
                     @*<input asp-for="Username"/>*@
                     @*<span asp-validation-for="Username"></span>*@
+                @*@Html.HiddenFor(modelItem => item.Username)
+                @Html.HiddenFor(modelItem => item.Password)*@
                 <td>
                     <input type="submit" value="Login" />
                 </td>
@@ -61,6 +66,7 @@
             <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
         </td>*@
         </tr>   
-@*  }*@
+@*  }
     </tbody>
-</table>
+</table>*@
+
