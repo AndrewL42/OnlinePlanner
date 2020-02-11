@@ -32,6 +32,88 @@
     <WCFMetadata Include="Connected Services" />
   </ItemGroup>
 
+  <ItemGroup>
+    <None Include="wwwroot\calendar\core\locales-all.js" />
+    <None Include="wwwroot\calendar\core\locales-all.min.js" />
+    <None Include="wwwroot\calendar\core\locales\af.js" />
+    <None Include="wwwroot\calendar\core\locales\ar-dz.js" />
+    <None Include="wwwroot\calendar\core\locales\ar-kw.js" />
+    <None Include="wwwroot\calendar\core\locales\ar-ly.js" />
+    <None Include="wwwroot\calendar\core\locales\ar-ma.js" />
+    <None Include="wwwroot\calendar\core\locales\ar-sa.js" />
+    <None Include="wwwroot\calendar\core\locales\ar-tn.js" />
+    <None Include="wwwroot\calendar\core\locales\ar.js" />
+    <None Include="wwwroot\calendar\core\locales\bg.js" />
+    <None Include="wwwroot\calendar\core\locales\bs.js" />
+    <None Include="wwwroot\calendar\core\locales\ca.js" />
+    <None Include="wwwroot\calendar\core\locales\cs.js" />
+    <None Include="wwwroot\calendar\core\locales\da.js" />
+    <None Include="wwwroot\calendar\core\locales\de.js" />
+    <None Include="wwwroot\calendar\core\locales\el.js" />
+    <None Include="wwwroot\calendar\core\locales\en-au.js" />
+    <None Include="wwwroot\calendar\core\locales\en-gb.js" />
+    <None Include="wwwroot\calendar\core\locales\en-nz.js" />
+    <None Include="wwwroot\calendar\core\locales\es-us.js" />
+    <None Include="wwwroot\calendar\core\locales\es.js" />
+    <None Include="wwwroot\calendar\core\locales\et.js" />
+    <None Include="wwwroot\calendar\core\locales\eu.js" />
+    <None Include="wwwroot\calendar\core\locales\fa.js" />
+    <None Include="wwwroot\calendar\core\locales\fi.js" />
+    <None Include="wwwroot\calendar\core\locales\fr-ca.js" />
+    <None Include="wwwroot\calendar\core\locales\fr-ch.js" />
+    <None Include="wwwroot\calendar\core\locales\fr.js" />
+    <None Include="wwwroot\calendar\core\locales\gl.js" />
+    <None Include="wwwroot\calendar\core\locales\he.js" />
+    <None Include="wwwroot\calendar\core\locales\hi.js" />
+    <None Include="wwwroot\calendar\core\locales\hr.js" />
+    <None Include="wwwroot\calendar\core\locales\hu.js" />
+    <None Include="wwwroot\calendar\core\locales\id.js" />
+    <None Include="wwwroot\calendar\core\locales\is.js" />
+    <None Include="wwwroot\calendar\core\locales\it.js" />
+    <None Include="wwwroot\calendar\core\locales\ja.js" />
+    <None Include="wwwroot\calendar\core\locales\ka.js" />
+    <None Include="wwwroot\calendar\core\locales\kk.js" />
+    <None Include="wwwroot\calendar\core\locales\ko.js" />
+    <None Include="wwwroot\calendar\core\locales\lb.js" />
+    <None Include="wwwroot\calendar\core\locales\lt.js" />
+    <None Include="wwwroot\calendar\core\locales\lv.js" />
+    <None Include="wwwroot\calendar\core\locales\mk.js" />
+    <None Include="wwwroot\calendar\core\locales\ms.js" />
+    <None Include="wwwroot\calendar\core\locales\nb.js" />
+    <None Include="wwwroot\calendar\core\locales\nl.js" />
+    <None Include="wwwroot\calendar\core\locales\nn.js" />
+    <None Include="wwwroot\calendar\core\locales\pl.js" />
+    <None Include="wwwroot\calendar\core\locales\pt-br.js" />
+    <None Include="wwwroot\calendar\core\locales\pt.js" />
+    <None Include="wwwroot\calendar\core\locales\ro.js" />
+    <None Include="wwwroot\calendar\core\locales\ru.js" />
+    <None Include="wwwroot\calendar\core\locales\sk.js" />
+    <None Include="wwwroot\calendar\core\locales\sl.js" />
+    <None Include="wwwroot\calendar\core\locales\sq.js" />
+    <None Include="wwwroot\calendar\core\locales\sr-cyrl.js" />
+    <None Include="wwwroot\calendar\core\locales\sr.js" />
+    <None Include="wwwroot\calendar\core\locales\sv.js" />
+    <None Include="wwwroot\calendar\core\locales\th.js" />
+    <None Include="wwwroot\calendar\core\locales\tr.js" />
+    <None Include="wwwroot\calendar\core\locales\uk.js" />
+    <None Include="wwwroot\calendar\core\locales\vi.js" />
+    <None Include="wwwroot\calendar\core\locales\zh-cn.js" />
+    <None Include="wwwroot\calendar\core\locales\zh-tw.js" />
+    <None Include="wwwroot\calendar\core\main.esm.js" />
+    <None Include="wwwroot\calendar\core\main.js" />
+    <None Include="wwwroot\calendar\core\main.min.js" />
+    <None Include="wwwroot\calendar\core\README.md" />
+    <None Include="wwwroot\calendar\daygrid\main.esm.js" />
+    <None Include="wwwroot\calendar\daygrid\main.js" />
+    <None Include="wwwroot\calendar\daygrid\main.min.js" />
+    <None Include="wwwroot\calendar\daygrid\README.md" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <TypeScriptCompile Include="wwwroot\calendar\core\main.d.ts" />
+    <TypeScriptCompile Include="wwwroot\calendar\daygrid\main.d.ts" />
+  </ItemGroup>
+
   <ProjectExtensions><VisualStudio><UserProperties wwwroot_4lib_4bootstrap_4dist_4css_4bootstrap_1css_1map__JsonSchema="" properties_4launchsettings_1json__JsonSchema="" /></VisualStudio></ProjectExtensions>
 
 </Project>

@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using OnlinePlanner.Models;
 
+
 namespace OnlinePlanner.Controllers
 {
     public class ClassesController : Controller
@@ -45,6 +46,14 @@ namespace OnlinePlanner.Controllers
         // GET: Classes/Create
         public IActionResult Create()
         {
+            List<SelectListItem> items = new List<SelectListItem>();
+
+            //foreach (var item in model)
+
+            items.Add(new SelectListItem { Text = "Holder", Value = "8" });
+
+            ViewBag.Class = items;
+
             return View();
         }
 
