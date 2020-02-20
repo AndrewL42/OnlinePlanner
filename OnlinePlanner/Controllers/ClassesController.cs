@@ -44,14 +44,20 @@ namespace OnlinePlanner.Controllers
         }
 
         // GET: Classes/Create
-        public IActionResult Create()
+        public IActionResult Create(SignIn smodel)
         {
             List<SelectListItem> items = new List<SelectListItem>();
+            System.Diagnostics.Debug.WriteLine(smodel);
+            System.Diagnostics.Debug.WriteLine(smodel.Username);
+            System.Diagnostics.Debug.WriteLine(smodel.Password);
 
-            //foreach (var item in model)
 
-            items.Add(new SelectListItem { Text = "Holder", Value = "8" });
+            //foreach (var item in smodel)
+            //{
 
+            items.Add(new SelectListItem { Text = smodel.Username, Value = smodel.Username });
+
+            //}
             ViewBag.Class = items;
 
             return View();
@@ -62,7 +68,7 @@ namespace OnlinePlanner.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Class_Name,Class_Days,Class_Times")] Classes classes)
+        public async Task<IActionResult> Create([Bind("Id,Username,Class_Name,Class_Days,Class_Times")] Classes classes)
         {
             if (ModelState.IsValid)
             {

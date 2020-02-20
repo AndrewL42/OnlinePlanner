@@ -22,12 +22,10 @@ namespace OnlinePlanner.Controllers
             _context = context;
         }
 
-        public IActionResult Login(SignIn smodel, IEnumerable<OnlinePlanner.Models.SignIn> tempModel)
+        public IActionResult Login(SignIn smodel)
         {
             var username = smodel.Username;
             var password = smodel.Password;
-
-            System.Diagnostics.Debug.WriteLine("CONTROLLER: " + tempModel.ToArray().Length);
 
             SignIn data_SignIn = _context.SignIn.Find(username);
             var user_SignIn = data_SignIn.Username;
