@@ -28,18 +28,17 @@ namespace OnlinePlanner.Controllers
             var password = smodel.Password;
 
             SignIn data_SignIn = _context.SignIn.Find(username);
-            var user_SignIn = data_SignIn.Username;
-            var password_SignIn = data_SignIn.Password;
-
-            if (user_SignIn != null && password_SignIn != null && user_SignIn.Equals(username) && password_SignIn.Equals(password))
+            if (data_SignIn != null)
             {
-                return View("~/Views/Home/Index_LoggedIn.cshtml");
+                var user_SignIn = data_SignIn.Username;
+                var password_SignIn = data_SignIn.Password;
+                if (user_SignIn != null && password_SignIn != null && user_SignIn.Equals(username) && password_SignIn.Equals(password))
+                {
+                    return View("~/Views/Home/Index_LoggedIn.cshtml");
+                }
             }
-            else
-            {
-                ViewBag.error = "Invalid Account";
-                return View("~/Views/Home/Index.cshtml");
-            }
+            ViewBag.error = "Invalid Account";
+            return View("~/Views/Home/Index.cshtml");
         }
 
         // GET: SignIn

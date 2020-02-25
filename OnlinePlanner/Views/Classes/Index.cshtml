@@ -2,6 +2,9 @@
 
 @{
     ViewData["Title"] = "Classes";
+    //var db = Database.Open("OnlinePlannerContext-987638a3-18bb-4a11-a870-0dc0f05bda15");
+    //var selectedData = db.Query("SELECT * FROM CLASSES WHERE Username = 'a'");
+    //var grid = new WebGrid(DiagnosticSource: selectedData)
 }
 
 <head>
@@ -11,8 +14,21 @@
             var calendarEl = document.getElementById('calendar');
 
             var calendar = new FullCalendar.Calendar(calendarEl, {
+                events: [
+                    {
+                        @*@foreach (var item in Model)
+                        { title: @Html.DisplayFor(modelItem => Model.Class_Name);
+                        }*@
+                        @*title: @Html.DisplayNameFor(model => model.Class_Name),
+                        start: "2020-02-24"*@
+                        //title: "test",
+                        //start: "2020-02-24"
+                    },
+                ],
                 plugins: ['dayGrid']
             });
+
+            //calendar.addEventListener(@Html.DisplayNameFor(model => model.Class_Name));
 
             calendar.render();
         });
@@ -39,28 +55,34 @@
             <th>
                 @Html.DisplayNameFor(model => model.Class_Times)
             </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Username)
+            </th>
             <th></th>
         </tr>
     </thead>
     <tbody>
         @foreach (var item in Model)
         {
-            <tr>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Class_Name)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Class_Days)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Class_Times)
-                </td>
-                <td>
-                    <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
-                    <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
-                    <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
-                </td>
-            </tr>
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Class_Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Class_Days)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Class_Times)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Username)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+            </td>
+        </tr>
         }
     </tbody>
 </table>

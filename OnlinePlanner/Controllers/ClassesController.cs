@@ -44,18 +44,25 @@ namespace OnlinePlanner.Controllers
         }
 
         // GET: Classes/Create
-        public IActionResult Create(SignIn smodel)
+        public IActionResult Create()
         {
             List<SelectListItem> items = new List<SelectListItem>();
-            System.Diagnostics.Debug.WriteLine(smodel);
-            System.Diagnostics.Debug.WriteLine(smodel.Username);
-            System.Diagnostics.Debug.WriteLine(smodel.Password);
+            //System.Diagnostics.Debug.WriteLine(smodel);
+            //System.Diagnostics.Debug.WriteLine(smodel.Username);
+            //System.Diagnostics.Debug.WriteLine(smodel.Password);
 
+            SignIn[] data_SignIn = _context.SignIn.ToArray();
+            //var username = data_SignIn.se
+
+            foreach (var item in data_SignIn)
+            {
+                items.Add(new SelectListItem { Text = item.Username, Value = item.Username });
+            }
 
             //foreach (var item in smodel)
             //{
 
-            items.Add(new SelectListItem { Text = smodel.Username, Value = smodel.Username });
+            //items.Add(new SelectListItem { Text = smodel.Username, Value = smodel.Username });
 
             //}
             ViewBag.Class = items;
@@ -70,6 +77,9 @@ namespace OnlinePlanner.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("Id,Username,Class_Name,Class_Days,Class_Times")] Classes classes)
         {
+            //Classes model = new Classes();
+            //var data_Class = _context.Classes.Find(User);
+            //classes.Username = 
             if (ModelState.IsValid)
             {
                 _context.Add(classes);
