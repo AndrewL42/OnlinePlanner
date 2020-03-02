@@ -5,19 +5,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Remove="Migrations\20200125221659_SignIn.cs" />
-    <Compile Remove="Migrations\20200125221659_SignIn.Designer.cs" />
-    <Compile Remove="Migrations\20200125221835_SignIn.cs" />
-    <Compile Remove="Migrations\20200125221835_SignIn.Designer.cs" />
-    <Compile Remove="Migrations\20200126001101_SignIn.cs" />
-    <Compile Remove="Migrations\20200126001101_SignIn.Designer.cs" />
-    <Compile Remove="Migrations\SignIn\20200219001645_classesUser.cs" />
-    <Compile Remove="Migrations\SignIn\20200219001645_classesUser.Designer.cs" />
-    <Compile Remove="Migrations\SignIn\20200219001759_classesUser.cs" />
-    <Compile Remove="Migrations\SignIn\20200219001759_classesUser.Designer.cs" />
-  </ItemGroup>
-
-  <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.AzureKeyVault.HostingStartup" Version="2.0.2" />
     <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="3.0.0" />
     <PackageReference Include="Microsoft.AspNetCore.Identity.UI" Version="3.0.0" />

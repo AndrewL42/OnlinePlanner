@@ -65,7 +65,7 @@ namespace OnlinePlanner.Controllers
             //items.Add(new SelectListItem { Text = smodel.Username, Value = smodel.Username });
 
             //}
-            ViewBag.Class = items;
+            ViewBag.Classes = items;
 
             return View();
         }
@@ -77,9 +77,6 @@ namespace OnlinePlanner.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("Id,Username,Class_Name,Class_Days,Class_Times")] Classes classes)
         {
-            //Classes model = new Classes();
-            //var data_Class = _context.Classes.Find(User);
-            //classes.Username = 
             if (ModelState.IsValid)
             {
                 _context.Add(classes);

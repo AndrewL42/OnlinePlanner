@@ -13,11 +13,8 @@
         <form asp-action="Create">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
-                @*@Html.DropDownList("User", Model.Username)*@
-                @*<label asp-for="Username" class="control-label"></label>*@
-                <input asp-for="Username"> @Html.DropDownList("Class") </input>
-                @*<span asp-validation-for="Username" class="text-danger"></span>*@
-                @*@Html.DropDownList("Class", (IEnumerable<SelectListItem>)ViewBag.Class)*@
+                @Html.DropDownList("Username", (IEnumerable<SelectListItem>)ViewBag.Classes)
+                <span asp-validation-for="Username" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="Class_Name" class="control-label"></label>

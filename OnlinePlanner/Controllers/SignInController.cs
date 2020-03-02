@@ -34,12 +34,24 @@ namespace OnlinePlanner.Controllers
                 var password_SignIn = data_SignIn.Password;
                 if (user_SignIn != null && password_SignIn != null && user_SignIn.Equals(username) && password_SignIn.Equals(password))
                 {
+                    List<SelectListItem> items = new List<SelectListItem>();
+
+                    items.Add(new SelectListItem { Text = User.Identity.Name, Value = User.Identity.Name });
+
+                    ViewBag.Classes = items;
+
+                    System.Diagnostics.Debug.WriteLine(User.Identity.Name);
                     return View("~/Views/Home/Index_LoggedIn.cshtml");
                 }
             }
             ViewBag.error = "Invalid Account";
             return View("~/Views/Home/Index.cshtml");
         }
+
+        //public async Task<IActionResult> Logout()
+        //{
+        //    await _signManager.SignOutAsync();
+        //}
 
         // GET: SignIn
         public async Task<IActionResult> Index()

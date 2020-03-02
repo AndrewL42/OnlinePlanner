@@ -10,7 +10,7 @@ using OnlinePlanner.Models;
 namespace OnlinePlanner.Migrations
 {
     [DbContext(typeof(OnlinePlannerContext))]
-    [Migration("20200119055324_Classes")]
+    [Migration("20200301051856_Classes")]
     partial class Classes
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -29,17 +29,47 @@ namespace OnlinePlanner.Migrations
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<string>("Class_Days")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Class_Name")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Class_Times")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("SignInUsername")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("Username")
+                        .HasColumnType("nvarchar(max)");
+
                     b.HasKey("Id");
 
+                    b.HasIndex("SignInUsername");
+
                     b.ToTable("Classes");
+                });
+
+            modelBuilder.Entity("OnlinePlanner.Models.SignIn", b =>
+                {
+                    b.Property<string>("Username")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("Email")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("Id")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Password")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Username");
+
+                    b.ToTable("SignIn");
                 });
 
             modelBuilder.Entity("OnlinePlanner.Models.Tasks", b =>
@@ -50,6 +80,7 @@ namespace OnlinePlanner.Migrations
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<string>("Class_Name")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<DateTime>("Due_Date")
@@ -61,6 +92,13 @@ namespace OnlinePlanner.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Tasks");
+                });
+
+            modelBuilder.Entity("OnlinePlanner.Models.Classes", b =>
+                {
+                    b.HasOne("OnlinePlanner.Models.SignIn", "SignIn")
+                        .WithMany("Classes")
+                        .HasForeignKey("SignInUsername");
                 });
 #pragma warning restore 612, 618
         }

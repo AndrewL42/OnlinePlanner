@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using OnlinePlanner.Models;
 
 namespace OnlinePlanner.Migrations
 {
     [DbContext(typeof(OnlinePlannerContext))]
-    partial class OnlinePlannerContextModelSnapshot : ModelSnapshot
+    [Migration("20200301051344_ClassesUp2")]
+    partial class ClassesUp2
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -94,7 +96,7 @@ namespace OnlinePlanner.Migrations
 
             modelBuilder.Entity("OnlinePlanner.Models.Classes", b =>
                 {
-                    b.HasOne("OnlinePlanner.Models.SignIn", null)
+                    b.HasOne("OnlinePlanner.Models.SignIn", "SignIn")
                         .WithMany("Classes")
                         .HasForeignKey("SignInUsername");
                 });

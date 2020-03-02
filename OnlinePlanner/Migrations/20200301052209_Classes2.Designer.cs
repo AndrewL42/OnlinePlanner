@@ -7,11 +7,11 @@ using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using OnlinePlanner.Models;
 
-namespace OnlinePlanner.Migrations.SignIn
+namespace OnlinePlanner.Migrations
 {
     [DbContext(typeof(OnlinePlannerContext))]
-    [Migration("20200219002233_classesUser")]
-    partial class classesUser
+    [Migration("20200301052209_Classes2")]
+    partial class Classes2
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -29,6 +29,7 @@ namespace OnlinePlanner.Migrations.SignIn
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<string>("Class_Days")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Class_Name")
@@ -38,10 +39,15 @@ namespace OnlinePlanner.Migrations.SignIn
                     b.Property<string>("Class_Times")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("User")
+                    b.Property<string>("SignInUsername")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("Username")
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("SignInUsername");
 
                     b.ToTable("Classes");
                 });
@@ -86,6 +92,13 @@ namespace OnlinePlanner.Migrations.SignIn
                     b.HasKey("Id");
 
                     b.ToTable("Tasks");
+                });
+
+            modelBuilder.Entity("OnlinePlanner.Models.Classes", b =>
+                {
+                    b.HasOne("OnlinePlanner.Models.SignIn", null)
+                        .WithMany("Classes")
+                        .HasForeignKey("SignInUsername");
                 });
 #pragma warning restore 612, 618
         }
