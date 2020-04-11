@@ -5,16 +5,12 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Remove="Migrations\20200125221659_SignIn.cs" />
-    <Compile Remove="Migrations\20200125221659_SignIn.Designer.cs" />
-    <Compile Remove="Migrations\20200125221835_SignIn.cs" />
-    <Compile Remove="Migrations\20200125221835_SignIn.Designer.cs" />
-    <Compile Remove="Migrations\20200126001101_SignIn.cs" />
-    <Compile Remove="Migrations\20200126001101_SignIn.Designer.cs" />
-    <Compile Remove="Migrations\SignIn\20200219001645_classesUser.cs" />
-    <Compile Remove="Migrations\SignIn\20200219001645_classesUser.Designer.cs" />
-    <Compile Remove="Migrations\SignIn\20200219001759_classesUser.cs" />
-    <Compile Remove="Migrations\SignIn\20200219001759_classesUser.Designer.cs" />
+    <Compile Remove="Migrations\20200306072918_Notes.cs" />
+    <Compile Remove="Migrations\20200306072918_Notes.Designer.cs" />
+    <Compile Remove="Migrations\20200306073537_resetDB.cs" />
+    <Compile Remove="Migrations\20200306073537_resetDB.Designer.cs" />
+    <Compile Remove="Migrations\20200306074138_resetDB.cs" />
+    <Compile Remove="Migrations\20200306074138_resetDB.Designer.cs" />
   </ItemGroup>
 
   <ItemGroup>

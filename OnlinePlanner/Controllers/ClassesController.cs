@@ -14,6 +14,8 @@ namespace OnlinePlanner.Controllers
     {
         private readonly OnlinePlannerContext _context;
 
+        
+
         public ClassesController(OnlinePlannerContext context)
         {
             _context = context;
@@ -23,6 +25,14 @@ namespace OnlinePlanner.Controllers
         public async Task<IActionResult> Index()
         {
             return View(await _context.Classes.ToListAsync());
+        }
+
+        public JsonResult GetEvents()
+        {
+            var events = _context.Classes.ToList();
+            var js = new JsonResult(events);
+            return js;
+
         }
 
         // GET: Classes/Details/5
@@ -47,25 +57,15 @@ namespace OnlinePlanner.Controllers
         public IActionResult Create()
         {
             List<SelectListItem> items = new List<SelectListItem>();
-            //System.Diagnostics.Debug.WriteLine(smodel);
-            //System.Diagnostics.Debug.WriteLine(smodel.Username);
-            //System.Diagnostics.Debug.WriteLine(smodel.Password);
 
             SignIn[] data_SignIn = _context.SignIn.ToArray();
-            //var username = data_SignIn.se
 
             foreach (var item in data_SignIn)
             {
                 items.Add(new SelectListItem { Text = item.Username, Value = item.Username });
             }
 
-            //foreach (var item in smodel)
-            //{
-
-            //items.Add(new SelectListItem { Text = smodel.Username, Value = smodel.Username });
-
-            //}
-            ViewBag.Class = items;
+            ViewBag.Classes = items;
 
             return View();
         }
@@ -75,11 +75,8 @@ namespace OnlinePlanner.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Username,Class_Name,Class_Days,Class_Times")] Classes classes)
+        public async Task<IActionResult> Create([Bind("Id,Username,Class_Name,Class_Times")] Classes classes)
         {
-            //Classes model = new Classes();
-            //var data_Class = _context.Classes.Find(User);
-            //classes.Username = 
             if (ModelState.IsValid)
             {
                 _context.Add(classes);
@@ -110,7 +107,7 @@ namespace OnlinePlanner.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,Class_Name,Class_Days,Class_Times")] Classes classes)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,Class_Name,Class_Times")] Classes classes)
         {
             if (id != classes.Id)
             {

@@ -19,5 +19,7 @@ namespace OnlinePlanner.Models
         public DbSet<Classes> Classes { get; set; }
 
         public DbSet<SignIn> SignIn { get; set; }
+
+        public DbSet<Notes> Notes { get; set; }
     }
 }

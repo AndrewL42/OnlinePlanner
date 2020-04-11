@@ -7,11 +7,11 @@ using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using OnlinePlanner.Models;
 
-namespace OnlinePlanner.Migrations.SignIn
+namespace OnlinePlanner.Migrations
 {
     [DbContext(typeof(OnlinePlannerContext))]
-    [Migration("20200219002233_classesUser")]
-    partial class classesUser
+    [Migration("20200306074620_resetDB")]
+    partial class resetDB
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -28,8 +28,9 @@ namespace OnlinePlanner.Migrations.SignIn
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<string>("Class_Days")
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<DateTime?>("Class_Days")
+                        .IsRequired()
+                        .HasColumnType("datetime2");
 
                     b.Property<string>("Class_Name")
                         .IsRequired()
@@ -38,12 +39,33 @@ namespace OnlinePlanner.Migrations.SignIn
                     b.Property<string>("Class_Times")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("User")
+                    b.Property<string>("Username")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
 
                     b.ToTable("Classes");
+                });
+
+            modelBuilder.Entity("OnlinePlanner.Models.Notes", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("Class")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Note")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Notes");
                 });
 
             modelBuilder.Entity("OnlinePlanner.Models.SignIn", b =>
