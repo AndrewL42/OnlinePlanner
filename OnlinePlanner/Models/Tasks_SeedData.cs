@@ -22,12 +22,12 @@ namespace OnlinePlanner.Models
                 }
 
                 context.Tasks.AddRange(
-                    new Tasks
-                    {
-                        Class_Name = "N/A",
-                        Due_Date = DateTime.Parse("1/1/2000"),
-                        Task_Name = "N/A",
-                    }
+                    //new Tasks
+                    //{
+                    //    Class_Name = "N/A",
+                    //    Due_Date = DateTime.Parse("1/1/2020"),
+                    //    Task_Name = "N/A",
+                    //}
                 );
                 context.SaveChanges();
             }

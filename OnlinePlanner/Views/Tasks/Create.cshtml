@@ -14,7 +14,8 @@
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
                 <label asp-for="Class_Name" class="control-label"></label>
-                <input asp-for="Class_Name" class="form-control" />
+                <text>@Html.DropDownList("Class_Name", (IEnumerable<SelectListItem>)ViewBag.Classes)</text>
+                @*<input asp-for="Class_Name" class="form-control" />*@
                 <span asp-validation-for="Class_Name" class="text-danger"></span>
             </div>
             <div class="form-group">

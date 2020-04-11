@@ -13,15 +13,18 @@ namespace OnlinePlanner.Models
 
         public int Id { get; set; }
 
+        [Required]
         public string Username { get; set; }
 
         [Required]
         [DisplayName("Class Name")]
         public string Class_Name { get; set; }
 
-        [Required]
-        [DisplayName("Class Days")]
-        public string Class_Days { get; set; }
+        //[Required]
+        //[DisplayName("Class Days")]
+        //[DataType(DataType.Date)]
+        //[DisplayFormat(DataFormatString ="{0:MM/dd/yyyy}")]
+        public DateTime? Class_Days { get; set; }
 
         [DisplayName("Class Times")]
         public string Class_Times { get; set; }

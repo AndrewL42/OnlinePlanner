@@ -3,11 +3,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using OnlinePlanner.Models;
 using static Microsoft.EntityFrameworkCore.DbLoggerCategory;
+
 
  //Model IEnumerable<OnlinePlanner.Models.SignIn>
 
@@ -22,11 +24,13 @@ namespace OnlinePlanner.Controllers
             _context = context;
         }
 
+
         public IActionResult Login(SignIn smodel)
         {
             var username = smodel.Username;
             var password = smodel.Password;
 
+            System.Diagnostics.Debug.WriteLine(User.Identity.Name);
             SignIn data_SignIn = _context.SignIn.Find(username);
             if (data_SignIn != null)
             {
@@ -47,11 +51,6 @@ namespace OnlinePlanner.Controllers
             ViewBag.error = "Invalid Account";
             return View("~/Views/Home/Index.cshtml");
         }
-
-        //public async Task<IActionResult> Logout()
-        //{
-        //    await _signManager.SignOutAsync();
-        //}
 
         // GET: SignIn
         public async Task<IActionResult> Index()
@@ -86,9 +85,10 @@ namespace OnlinePlanner.Controllers
         // POST: SignIn/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
+
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Username,Password,Email")] SignIn signIn)
+        public async Task<IActionResult> Create([Bind("Id,Username,Password")] SignIn signIn)
         {
             if (ModelState.IsValid)
             {
@@ -98,6 +98,7 @@ namespace OnlinePlanner.Controllers
             }
             return View(signIn);
         }
+
 
         // GET: SignIn/Edit/5
         public async Task<IActionResult> Edit(int? id)
@@ -120,7 +121,7 @@ namespace OnlinePlanner.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,Username,Password,Email")] SignIn signIn)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,Username,Password")] SignIn signIn)
         {
             if (id != signIn.Id)
             {

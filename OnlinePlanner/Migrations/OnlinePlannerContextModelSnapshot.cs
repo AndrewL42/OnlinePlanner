@@ -26,9 +26,9 @@ namespace OnlinePlanner.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<string>("Class_Days")
+                    b.Property<DateTime?>("Class_Days")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("datetime2");
 
                     b.Property<string>("Class_Name")
                         .IsRequired()
@@ -37,17 +37,33 @@ namespace OnlinePlanner.Migrations
                     b.Property<string>("Class_Times")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("SignInUsername")
-                        .HasColumnType("nvarchar(450)");
-
                     b.Property<string>("Username")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
 
-                    b.HasIndex("SignInUsername");
-
                     b.ToTable("Classes");
+                });
+
+            modelBuilder.Entity("OnlinePlanner.Models.Notes", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("Class")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Note")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Notes");
                 });
 
             modelBuilder.Entity("OnlinePlanner.Models.SignIn", b =>
@@ -90,13 +106,6 @@ namespace OnlinePlanner.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Tasks");
-                });
-
-            modelBuilder.Entity("OnlinePlanner.Models.Classes", b =>
-                {
-                    b.HasOne("OnlinePlanner.Models.SignIn", null)
-                        .WithMany("Classes")
-                        .HasForeignKey("SignInUsername");
                 });
 #pragma warning restore 612, 618
         }

@@ -5,6 +5,15 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Migrations\20200306072918_Notes.cs" />
+    <Compile Remove="Migrations\20200306072918_Notes.Designer.cs" />
+    <Compile Remove="Migrations\20200306073537_resetDB.cs" />
+    <Compile Remove="Migrations\20200306073537_resetDB.Designer.cs" />
+    <Compile Remove="Migrations\20200306074138_resetDB.cs" />
+    <Compile Remove="Migrations\20200306074138_resetDB.Designer.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.AzureKeyVault.HostingStartup" Version="2.0.2" />
     <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="3.0.0" />
     <PackageReference Include="Microsoft.AspNetCore.Identity.UI" Version="3.0.0" />
