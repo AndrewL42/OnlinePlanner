@@ -8,7 +8,6 @@
 
 <h1>Index</h1>
 
-@*<body>*@
 <p>
     <a asp-action="Create">Create New</a>
 </p>
@@ -18,9 +17,6 @@
             <th>
                 @Html.DisplayNameFor(model => model.Class_Name)
             </th>
-            @*<th>
-                @Html.DisplayNameFor(model => model.Class_Days)
-            </th>*@
             <th>
                 @Html.DisplayNameFor(model => model.Class_Times)
             </th>
@@ -37,15 +33,6 @@
             <td>
                 @Html.DisplayFor(modelItem => item.Class_Name)
             </td>
-            @*<td>
-                @{ 
-                    var date = Convert.ToDateTime(item.Class_Days);
-                    var dateText = date.ToString("MM/dd/yyyy");
-                    //DateTime date = DateTime.ParseExact(modelItem => item.Class_Days, "YYYY MM dd H:mmtt", CultureInfo.InvariantCulture);
-                }
-                @Html.DisplayFor(modelItem => item.Class_Days)
-
-            </td>*@
             <td>
                 @Html.DisplayFor(modelItem => item.Class_Times)
             </td>
@@ -81,63 +68,6 @@
             </div>
         </div>
     </div>
-
-    @*<link href="//cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.4.0/fullcalendar.min.css" rel="stylesheet" />
-    <link href="//cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.4.0/fullcalendar.print.css" rel="stylesheet" media="print" />*@
-
-    @section Scripts{
-        @*<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/moment.min.js"></script>
-        <script src="//cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.4.0/fullcalendar.min.js"></script>*@
-
-        <script>
-            $(document).ready(function () {
-                var events = [];
-                $.ajax({
-                    type: "GET",
-                    url: "/home/GetEvents",
-                    success: function (data) {
-                        $.each(data, function (i, v) {
-                            events.push({
-                                title: v.Class_Name,
-                                start: moment(v.Class_Days),
-                                end: v.End != null ? moment(v.Class_Days) : null,
-                            });
-                        })
-
-                        GenerateCalender(events);
-                    },
-                    error: function (error) {
-                        //alert('failed');
-                    }
-                })
-
-                function GenerateCalender(events) {
-                    $('#calender').fullCalendar('destroy');
-                    $('#calender').fullCalendar({
-                        contentHeight: 400,
-                        defaultDate: new Date(),
-                        header: {
-                            left: 'prev,next today',
-                            center: 'title',
-                            right: 'month,basicWeek,basicDay,agenda'
-                        },
-                        eventLimit: true,
-                        eventColor: '#378006',
-                        events: events,
-                        eventClick: function (calEvent, jsEvent, view) {
-                            $('#myModal #eventTitle').text(calEvent.title);
-                            var $description = $('<div/>');
-                            $description.append($('<p/>').html('<b>Start:</b>' + calEvent.start.format("MM/dd/yyyy")));
-                            if (calEvent.end != null) {
-                                $description.append($('<p/>').html('<b>End:</b>' + calEvent.end.format("MM/dd/yyyy")));
-                            }
-
-                            $('#myModal').modal();
-                        }
-                    })
-                }
-            })
-        </script>
-    }
+  
 
     </body>

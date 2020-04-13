@@ -25,7 +25,7 @@
                                         var dueDate = item.Due_Date.ToString();
                                         var dateUse = DateTime.Parse(dueDate).ToString("yyyy-MM-dd");
                                         @:{
-                                            @:title: "@item.Class_Name.ToString()",
+                                            @:title: "@item.Task_Name.ToString()",
                                             @:start: "@dateUse",
 
 
@@ -69,7 +69,6 @@
         <tr>
             <td>
                 @Html.DisplayFor(modelItem => item.Class_Name)
-                @*@Html.DropDownList(modelItem => item.Class_Name)*@
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Due_Date)

@@ -19,11 +19,6 @@ namespace OnlinePlanner.Models
         [Required]
         [DisplayName("Class Name")]
         public string Class_Name { get; set; }
-
-        //[Required]
-        //[DisplayName("Class Days")]
-        //[DataType(DataType.Date)]
-        //[DisplayFormat(DataFormatString ="{0:MM/dd/yyyy}")]
         public DateTime? Class_Days { get; set; }
 
         [DisplayName("Class Times")]

@@ -17,6 +17,8 @@ namespace OnlinePlanner.Models
         [DataType(DataType.Date)]
         [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}")]
         public DateTime Due_Date { get; set; }
+
+        [Required]
         public string Task_Name { get; set; }
 
     }
